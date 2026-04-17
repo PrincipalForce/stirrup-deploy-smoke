@@ -1,0 +1,8 @@
+{
+  "name": "stirrup-deploy-smoke",
+  "version": "0.0.1",
+  "private": true,
+  "main": "index.js",
+  "scripts": { "start": "node index.js" },
+  "engines": { "node": ">=20" }
+}
