@@ -1,0 +1,28 @@
+id: echo-http
+name: Echo via HTTPBin
+version: "1.0"
+description: Calls httpbin.org/anything with the supplied payload and returns the echoed response.
+
+params:
+  - name: message
+    type: string
+    required: false
+    default: "ping"
+
+nodes:
+  - id: echo
+    type: http
+    name: POST httpbin
+    inputs:
+      - from: context.message
+        to: message
+    outputs: [status, body]
+    config:
+      url: "https://httpbin.org/anything"
+      method: POST
+      headers:
+        Content-Type: application/json
+      body: '{"echo":"{{message}}"}'
+      timeoutMs: 15000
+
+edges: []

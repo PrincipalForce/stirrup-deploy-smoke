@@ -1,0 +1,5 @@
+node_modules/
+stirrup.db
+stirrup.db-*
+.env
+dist/

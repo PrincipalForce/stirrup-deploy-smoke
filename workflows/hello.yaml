@@ -1,0 +1,25 @@
+id: hello-world
+name: Hello World
+version: "1.0"
+description: Smoke-test workflow — returns a greeting from the input name.
+
+params:
+  - name: name
+    type: string
+    required: false
+    default: "Launchmatic"
+    description: Name to greet.
+
+nodes:
+  - id: greet
+    type: transform
+    name: Build greeting
+    inputs:
+      - from: context.name
+        to: name
+    outputs: [message]
+    config:
+      expression: |
+        return { message: `Hello, ${input.name}!` };
+
+edges: []
